@@ -5885,7 +5885,7 @@ def handle_message(event):
         return
 
     if 'ydl:' in msg_text:
-        url = msg.text.replace("ydl:","")
+        url = msg_text.replace("ydl:","")
         set[user_id] = {'user_id':user_id,'n':99,'twitter':'','d_n':'','d_t':'','text':url}
         line_bot_api.reply_message(msg_from,TextSendMessage(text='時間の指定をお願いします\n例:50秒から1分20秒まで\n00:00:50-00:01:20\n\n複数指定(,で区切ってください)\n00:00:50-00:01:20,00:01:30-00:02:30'))
         return
