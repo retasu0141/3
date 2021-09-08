@@ -1,0 +1,9 @@
+Flask==1.1.1
+line-bot-sdk==1.8.0
+requests
+psutil
+psycopg2
+flask-sqlalchemy
+hamlish_jinja
+werkzeug==0.16.1
+google-api-python-client
