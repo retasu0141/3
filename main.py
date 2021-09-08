@@ -43,7 +43,7 @@ YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
 
-@app.route("/download", methods=["GET"])
+
 def ydl(url,time_str):
     try:
         os.remove('video.mp4')
@@ -115,12 +115,15 @@ def ydl(url,time_str):
         os.remove('./output/out'+str(file_int)+'.mp4')
         os.remove('./download/out.mp4')
     print("ok")
+    return
+
+@app.route("/download", methods=["GET"])
+def download():
     filepath = "./video/video.mp4"
     filename = "video.mp4"
     return send_file(filepath, as_attachment=True,
                      attachment_filename=filename,
                      mimetype='video/mp4')
-
 
 def pick_up_vid(url):
   pattern_watch = 'https://www.youtube.com/watch?'
@@ -6035,7 +6038,7 @@ def handle_message(event):
                 url = set[user_id]['text']
                 time_str = msg_text
                 ydl(url,time_str)
-                line_bot_api.reply_message(event.reply_token, image_message)
+                line_bot_api.reply_message(msg_from,TextSendMessage(text='ここからダウンロードできます\n[https://editorscampbot.herokuapp.com/download]'))
                 #line_bot_api.reply_message(msg_from,TextSendMessage(text='YouTubeのリンクを送信してください！'))
                 return
 
