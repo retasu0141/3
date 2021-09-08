@@ -71,7 +71,7 @@ def ydl(url,time_str):
     #  FFMPEGコマンド
     FFMPEG_HEADER='ffmpeg -safe 0 -f concat -i '
     FFMPEG_MIDDLE=' -c:v copy -c:a copy -map 0:v -map 0:a '
-    OUT_FILE_NAME='./video/video.mp4'
+    OUT_FILE_NAME='video.mp4'
 
 
     yt = YouTube(url)
@@ -119,7 +119,7 @@ def ydl(url,time_str):
 
 @app.route("/download", methods=["GET"])
 def download():
-    filepath = "./video/video.mp4"
+    filepath = "video.mp4"
     filename = "video.mp4"
     return send_file(filepath, as_attachment=True,
                      attachment_filename=filename,
@@ -6038,7 +6038,7 @@ def handle_message(event):
                 url = set[user_id]['text']
                 time_str = msg_text
                 ydl(url,time_str)
-                line_bot_api.push_message(msg_from,TextSendMessage(text='ここからダウンロードできます\n[https://editorscampbot.herokuapp.com/download]'))
+                line_bot_api.push_message(set[user_id]['user_id'],TextSendMessage(text='ここからダウンロードできます\n[https://editorscampbot.herokuapp.com/download]'))
                 #line_bot_api.reply_message(msg_from,TextSendMessage(text='YouTubeのリンクを送信してください！'))
                 return
 
