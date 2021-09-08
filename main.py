@@ -6037,6 +6037,7 @@ def handle_message(event):
             if user_id == set[user_id]['user_id'] and set[user_id]['n'] == 99:
                 url = set[user_id]['text']
                 time_str = msg_text
+                line_bot_api.reply_message(msg_from,TextSendMessage(text='少々お待ちください！'))
                 ydl(url,time_str)
                 line_bot_api.push_message(set[user_id]['user_id'],TextSendMessage(text='ここからダウンロードできます\n[https://editorscampbot.herokuapp.com/download]'))
                 #line_bot_api.reply_message(msg_from,TextSendMessage(text='YouTubeのリンクを送信してください！'))
