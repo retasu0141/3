@@ -7,3 +7,4 @@ flask-sqlalchemy
 hamlish_jinja
 werkzeug==0.16.1
 google-api-python-client
+pytube
