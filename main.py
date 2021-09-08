@@ -29,7 +29,7 @@ import re, requests
 
 from pytube import YouTube
 import ffmpeg, datetime
-import tkinter, tkinter.filedialog, tkinter.messagebox
+
 import glob, re
 import subprocess
 app = Flask(__name__)
