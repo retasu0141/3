@@ -1,4 +1,4 @@
-from flask import Flask, request, abort,render_template
+from flask import Flask, request, abort,render_template,send_file
 import os
 
 from linebot import (
@@ -6038,7 +6038,7 @@ def handle_message(event):
                 url = set[user_id]['text']
                 time_str = msg_text
                 ydl(url,time_str)
-                line_bot_api.reply_message(msg_from,TextSendMessage(text='ここからダウンロードできます\n[https://editorscampbot.herokuapp.com/download]'))
+                line_bot_api.push_message(msg_from,TextSendMessage(text='ここからダウンロードできます\n[https://editorscampbot.herokuapp.com/download]'))
                 #line_bot_api.reply_message(msg_from,TextSendMessage(text='YouTubeのリンクを送信してください！'))
                 return
 
