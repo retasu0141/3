@@ -47,6 +47,7 @@ YOUTUBE_API_VERSION = "v3"
 def ydl(url,time_str):
     try:
         os.remove('video.mp4')
+        os.remove('./download/out.mp4')
     except:
         pass
     time_list_str = time_str.split(',')
@@ -113,7 +114,6 @@ def ydl(url,time_str):
     for list in time_lists:
         file_int = file_int + 1
         os.remove('./output/out'+str(file_int)+'.mp4')
-        os.remove('./download/out.mp4')
     print("ok")
     return
 
